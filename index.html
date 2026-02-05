@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head><title>THE JAVA CLICKS</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asset&display=swap" rel="stylesheet">
+    <style>
+        body{
+        background: linear-gradient(#151613 , #272825);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 1900px;
+        }
+
+        div{
+            border: red 0px solid;
+        }
+
+        .main{
+            position: relative;
+            margin-top: 50%;
+            width: 100vw;
+            height: 1500px;
+        }
+
+        .container{
+            position: static;
+             z-index: 1;
+            width: 350px;
+            height: 1350px;
+            margin-left: 6%;
+            display: grid;
+            grid-template-columns: repeat(1,350px);
+            grid-template-rows: repeat(3, 450px);
+            gap: 20px;
+        }
+
+        .item{
+            background: linear-gradient(#bd1310,#851603);
+            border: 30px white solid;
+            border-bottom: 120px white solid;
+            box-shadow: 5px 5px #4a0000,
+            -2px -2px 20px #120101;
+            transition: transform ease-in-out 0.3s;
+        }
+
+        .item-1{
+            rotate: 10deg;
+            translate: 30%;
+        }
+
+        .item-2{
+            rotate: -10deg;
+            translate: 0 -100px;
+        }
+
+        .item-3{
+            z-index: 3;
+            rotate: 5deg;
+            translate: 20% -200px;
+        }
+
+       
+        .item-1 img, .item-2 img, .item-3 img, .active img{
+            width: 100%;
+            height: 100%;
+            display: block;
+            margin: auto;
+        }
+
+         .filter{
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            z-index: 2;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+        }
+
+        .item-1 img:not(.filter),
+        .item-2 img:not(.filter),
+        .item-3 img:not(.filter),
+        .item-4 img:not(.filter){
+            position: relative;
+            z-index: 1
+        }
+
+
+        .active{
+            pointer-events: none;
+            z-index: 2;
+            right: 2%;
+            translate: 0 20px;
+            position: absolute;
+            width: 700px;
+            height: 1200px;
+        }
+
+         .item:hover {
+            z-index: 999;
+            transform: scale(1.05);
+        }
+        .footer{
+            position: absolute;
+            right: 0;
+            width: 520px;
+            color: white;
+            font-family: monospace;
+            font-size: 30px;
+        }
+
+        .sticker{
+            position: absolute;
+            z-index: 999;
+        }
+
+        .sticker-1{
+            width: 30%;
+            rotate: -10deg;
+            right: 2%;
+            translate: 0% -100px;
+        }
+        .sticker-2{
+            width: 20%;
+            rotate: 15deg;
+            right: 5%;
+            translate:  0 150px;
+        }
+
+        @media(min-width: 1400px){
+            .container{
+                margin-left: 20%
+            }
+
+            .active{
+                right: 20%;
+            }
+
+            .sticker-1{
+            right: 8%;
+            translate: 0% -100px;
+        }
+        .sticker-2{
+            right: 10%;
+            translate:  0 250px;
+        }
+        }
+    </style></head>
+    <body>
+
+        <img src="star-1.png" class="sticker sticker-1">
+         <img src="star-1.png" class="sticker sticker-2">
+      
+        <div class="main">
+            <div class="active"><img src="main-1.png" id="active"></div>
+        <div class="container">
+            <div class="item item-1"><img src="filter.jpg" class="filter"><img src="1.png"></div>
+            <div class="item item-2"><img src="filter.jpg" class="filter"><img src="2.png"></div>
+            <div class="item item-3"><img src="filter.jpg" class="filter"><img src="3.png"></div>
+        </div>
+        <div class="footer">| THE-JAVA-CLICKS | 02.05.26 |</div>
+        </div>
+    </body>
+    <script>
+        const active = document.getElementById("active");
+        const s1 = document.querySelector(".sticker-1");
+        const s2 = document.querySelector(".sticker-2");
+
+        setInterval(()=>{
+            active.src="main-2.png"
+            s1.style.scale="1.05"
+            s2.style.scale="1.05"
+            setTimeout(()=>{
+                active.src="main-1.png"
+                s1.style.scale="1"
+                s2.style.scale="1"
+            }, 1000)
+        },2000)
+    </script>
+</html>
